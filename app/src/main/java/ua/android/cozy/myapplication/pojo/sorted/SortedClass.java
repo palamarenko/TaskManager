@@ -21,7 +21,6 @@ public class SortedClass  extends BaseSortedClass<Mechanism>{
     @Override
     public void sort() throws InterruptedException {
 
-        Thread.sleep(2000);
         Collections.sort(list, new Comparator<Mechanism>() {
             @Override
             public int compare(Mechanism mechanism, Mechanism t1) {
