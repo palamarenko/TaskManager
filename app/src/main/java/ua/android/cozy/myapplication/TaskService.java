@@ -6,11 +6,8 @@ import android.os.Binder;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
 
-import java.util.UUID;
-
 import ua.android.cozy.myapplication.pojo.Mechanism;
 import ua.android.cozy.myapplication.pojo.sorted.BaseSortedClass;
-import ua.android.cozy.myapplication.pojo.sorted.SortedClass;
 import ua.android.cozy.myapplication.thread_manager.GetSortedList;
 import ua.android.cozy.myapplication.thread_manager.TaskManager;
 import ua.android.cozy.myapplication.thread_manager.TaskMangerImp;
@@ -34,20 +31,19 @@ public class TaskService extends Service {
 
 
     public class LocalBinder extends Binder {
-        TaskService getService() {return TaskService.this;}
+        TaskService getService() {
+            return TaskService.this;
+        }
     }
 
 
-    public void sortThis(String id, BaseSortedClass<Mechanism> baseSortedClass){
+    public void sortThis(String id, BaseSortedClass<Mechanism> baseSortedClass) {
         manager.sortThis(id, baseSortedClass);
     }
 
-    public void sortIsReady(GetSortedList<Mechanism> getSortedList){
+    public void sortIsReady(GetSortedList<Mechanism> getSortedList) {
         manager.sortIsReady(getSortedList);
     }
-
-
-
 
 
 }

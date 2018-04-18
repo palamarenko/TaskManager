@@ -41,7 +41,7 @@ public class TaskMangerImp implements TaskManager<Mechanism> {
             startTask(taskHolder.get(i).getBaseSortedClass(), new Runnable() {
                 @Override
                 public void run() {
-                    getSortedList.get(wrapper.getId(),wrapper.getBaseSortedClass().getList());
+                    getSortedList.get(wrapper.getId(), wrapper.getBaseSortedClass().getList());
                     taskHolder.remove(wrapper);
                     taskRunNow--;
                     checkIfNeedStart();
@@ -58,7 +58,8 @@ public class TaskMangerImp implements TaskManager<Mechanism> {
             public void run() {
                 try {
                     baseSortedClass.sort();
-                }catch (Exception ignored){}
+                } catch (Exception ignored) {
+                }
                 new Handler(Looper.getMainLooper()).post(finish);
 
             }

@@ -11,5 +11,6 @@ import ua.android.cozy.myapplication.pojo.Mechanism;
 public interface TaskManager<T extends Mechanism> {
 
     void sortThis(String id, BaseSortedClass<T> sortedClass);
+
     void sortIsReady(GetSortedList<T> getSortedList);
 }

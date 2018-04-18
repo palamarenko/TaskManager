@@ -4,12 +4,11 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.os.Bundle;
 import android.os.IBinder;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 
 import java.util.ArrayList;
@@ -24,8 +23,6 @@ import ua.android.cozy.myapplication.pojo.Mechanism;
 import ua.android.cozy.myapplication.pojo.sorted.SortedClass;
 import ua.android.cozy.myapplication.recycler.MyAdapter;
 import ua.android.cozy.myapplication.thread_manager.GetSortedList;
-import ua.android.cozy.myapplication.thread_manager.TaskManager;
-import ua.android.cozy.myapplication.thread_manager.TaskMangerImp;
 
 public class ThreadManagerActivity extends AppCompatActivity implements GetSortedList<Mechanism> {
 
@@ -55,9 +52,7 @@ public class ThreadManagerActivity extends AppCompatActivity implements GetSorte
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_thread_manager);
-        RecyclerView recyclerView = findViewById(R.id.recycler);
-        recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        initRecycler();
         findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -66,6 +61,12 @@ public class ThreadManagerActivity extends AppCompatActivity implements GetSorte
                 }
             }
         });
+    }
+
+    private void initRecycler(){
+        RecyclerView recyclerView = findViewById(R.id.recycler);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
 
